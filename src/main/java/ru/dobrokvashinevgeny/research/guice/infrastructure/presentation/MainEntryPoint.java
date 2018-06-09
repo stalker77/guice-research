@@ -6,7 +6,7 @@ package ru.dobrokvashinevgeny.research.guice.infrastructure.presentation;
 
 import com.google.inject.*;
 import ru.dobrokvashinevgeny.research.guice.infrastructure.Application;
-import ru.dobrokvashinevgeny.research.guice.infrastructure.services.*;
+import ru.dobrokvashinevgeny.research.guice.infrastructure.services.GuiceConfigModule;
 
 /**
  * Класс MainEntryPoint

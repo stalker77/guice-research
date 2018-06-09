@@ -6,7 +6,11 @@
 
 	<groupId>ru.dobrokvashinevgeny.research</groupId>
 	<artifactId>guice-research</artifactId>
+	<packaging>pom</packaging>
 	<version>1.0</version>
+	<modules>
+		<module>weld-tomcat7</module>
+	</modules>
 
 
 	<properties>
@@ -16,6 +20,10 @@
 		<maven.compiler.source>1.7</maven.compiler.source>
 
 		<guice.version>4.0</guice.version>
+		<javaee-api.version>7.0</javaee-api.version>
+		<weld.version>2.4.7.Final</weld.version>
+		<maven.war.plugin.version>3.0.0</maven.war.plugin.version>
+		<maven.tomcat.plugin.version>2.2</maven.tomcat.plugin.version>
 	</properties>
 
 	<dependencyManagement>
@@ -25,8 +33,39 @@
 				<artifactId>guice</artifactId>
 				<version>${guice.version}</version>
 			</dependency>
+
+			<dependency>
+				<groupId>javax</groupId>
+				<artifactId>javaee-api</artifactId>
+				<version>${javaee-api.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.jboss.weld.servlet</groupId>
+				<artifactId>weld-servlet</artifactId>
+				<version>${weld.version}</version>
+			</dependency>
+
 		</dependencies>
 	</dependencyManagement>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>${maven.war.plugin.version}</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.tomcat.maven</groupId>
+					<artifactId>tomcat7-maven-plugin</artifactId>
+					<version>${maven.tomcat.plugin.version}</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
 
 	<dependencies>
 		<dependency>
